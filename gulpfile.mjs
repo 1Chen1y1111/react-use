@@ -3,34 +3,62 @@ import { deleteAsync } from 'del';
 import babel from 'gulp-babel';
 import ts from 'gulp-typescript';
 
-// clean
+// Clean build directories
 gulp.task('clean', async () => {
-  await deleteAsync('dist');
-  await deleteAsync('es');
-  await deleteAsync('lib');
+  await Promise.all([
+    deleteAsync('dist'),
+    deleteAsync('esm'),
+    deleteAsync('lib')
+  ]);
 });
 
-// esm
+// Build ESM format
 gulp.task('esm', () => {
-  const tsp = ts.createProject('tsconfig.pro.json', {
+  const tsProject = ts.createProject('tsconfig.pro.json', {
     module: 'ESNext',
   });
 
-  return tsp.src().pipe(tsp()).pipe(babel()).pipe(gulp.dest('esm/'));
+  return tsProject.src()
+    .pipe(tsProject())
+    .pipe(babel())
+    .pipe(gulp.dest('esm/'));
 });
 
-// cjs
+// Build CommonJS format
 gulp.task('cjs', () => {
-  return gulp
-    .src(['./esm/**/*.js'])
-    .pipe(
-      babel({
-        configFile: '../../.babelrc',
-      }),
-    )
+  return gulp.src(['./esm/**/*.js'])
+    .pipe(babel({
+      configFile: '../../.babelrc',
+    }))
     .pipe(gulp.dest('lib/'));
 });
 
-const build = gulp.series('clean', 'esm', 'cjs');
+// Generate type declaration files
+gulp.task('declaration', () => {
+  const tsProject = ts.createProject('tsconfig.pro.json', {
+    declaration: true,
+    emitDeclarationOnly: true
+  });
+
+  return tsProject.src()
+    .pipe(tsProject())
+    .pipe(gulp.dest('esm/'))
+    .pipe(gulp.dest('lib/'));
+});
+
+// Copy README file
+gulp.task('copyReadme', () => {
+  return gulp.src('../../README.md')
+    .pipe(gulp.dest('../../packages/hooks'));
+});
+
+// Build task workflow
+const build = gulp.series(
+  'clean',
+  'esm',
+  'cjs',
+  'declaration',
+  'copyReadme'
+);
 
 export default build;
