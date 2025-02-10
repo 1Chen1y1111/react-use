@@ -4,7 +4,7 @@
     <metrics statements="14" coveredstatements="14" conditionals="5" coveredconditionals="5" methods="7" coveredmethods="7" elements="26" coveredelements="26" complexity="0" loc="14" ncloc="14" packages="2" files="2" classes="2"/>
     <package name="src">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.ts" path="E:\web\Personal\encode\cy-hooks\packages\hooks\src\index.ts">
+      <file name="index.ts" path="E:\web\Personal\encode\react-use\packages\hooks\src\index.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -12,7 +12,7 @@
     </package>
     <package name="src.useToggle">
       <metrics statements="12" coveredstatements="12" conditionals="5" coveredconditionals="5" methods="7" coveredmethods="7"/>
-      <file name="index.ts" path="E:\web\Personal\encode\cy-hooks\packages\hooks\src\useToggle\index.ts">
+      <file name="index.ts" path="E:\web\Personal\encode\react-use\packages\hooks\src\useToggle\index.ts">
         <metrics statements="12" coveredstatements="12" conditionals="5" coveredconditionals="5" methods="7" coveredmethods="7"/>
         <line num="1" count="2" type="stmt"/>
         <line num="16" count="8" type="cond" truecount="1" falsecount="0"/>
