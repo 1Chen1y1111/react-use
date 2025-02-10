@@ -7,7 +7,7 @@ export default defineConfig({
     name: 'cy-hooks',
   },
   alias: {
-    '@cy-design/hooks': resolve(__dirname, '../packages/hooks/src'),
+    '@cy-group/react-use': resolve(__dirname, '../packages/hooks/src'),
   },
   resolve: {
     atomDirs: [{ type: 'hook', dir: '../packages/hooks/src' }],

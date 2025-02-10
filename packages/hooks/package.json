@@ -1,14 +1,13 @@
 {
-  "name": "@cy-design/hooks",
+  "name": "@cy-group/react-use",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "scripts": {
-    "build": "gulp"
+    "build": "gulp && webpack-cli"
   },
-  "main":"./lib/index.js",
-  "module":"./esm/index.js",
-  "types":"./lib/index.d.ts",
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./lib/index.d.ts",
   "files": [
     "dist",
     "lib",

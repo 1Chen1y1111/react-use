@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { useToggle } from '@cy-design/hooks';
+import { useToggle } from '@cy-group/react-use';
 
 export default () => {
   const [state, { toggle, setLeft, setRight }] = useToggle();
