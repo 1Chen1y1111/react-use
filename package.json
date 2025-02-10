@@ -1,7 +1,8 @@
 {
-  "name": "cy-hooks",
+  "name": "react-use",
+  "version": "1.0.0",
   "description": "React 业务 Hooks",
-  "private": "true",
+  "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "init": "pnpm install && pnpm run build",
@@ -11,7 +12,7 @@
     "docs:dev": "pnpm -C docs dev",
     "hooks:build": "pnpm -C packages/hooks test",
     "build": "pnpm -r --filter=./packages/* run build",
-    "build:doc": "dumi build",
+    "build:docs": "pnpm -C docs docs:build",
     "test": "jest",
     "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "pub": "pnpm run build && pnpm -r --filter=./packages/* publish",
@@ -19,6 +20,10 @@
     "encode-fe-lint-scan": "encode-fe-lint scan",
     "encode-fe-lint-fix": "encode-fe-lint fix"
   },
+  "workspaces": [
+    "packages/hooks",
+    "docs"
+  ],
   "keywords": [
     "react",
     "hooks"

@@ -1,10 +1,15 @@
 import { defineConfig } from 'dumi';
 import { resolve } from 'path';
 
+const basePath = '/react-use/';
+
 export default defineConfig({
-  outputPath: 'docs-dist',
+  outputPath: 'dist',
+  base: basePath,
+  publicPath: basePath,
+  hash: true,
   themeConfig: {
-    name: 'cy-hooks',
+    name: 'react-use',
   },
   alias: {
     '@cy-group/react-use': resolve(__dirname, '../packages/hooks/src'),
